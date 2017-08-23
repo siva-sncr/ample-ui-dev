@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { AppComponent } from './app.component';
+import { AmpleComponent } from './ample.component';
+import { AmpleRouteModule } from './ample.route';
+import { LoginModule } from './modules/login/login.module';
+
+import { Config } from './provider/config.provider';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AmpleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    TranslateModule.forRoot(),
+    
+    AmpleRouteModule,
+    LoginModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [Config],
+  bootstrap: [AmpleComponent]
 })
-export class AppModule { }
+
+export class AmpleModule { }

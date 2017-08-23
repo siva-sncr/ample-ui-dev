@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule }    from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AmpleComponent } from './ample.component';
 import { AmpleRouteModule } from './ample.route';
 import { LoginModule } from './modules/login/login.module';
+
+import { Config } from './provider/config.provider';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,12 @@ import { LoginModule } from './modules/login/login.module';
   imports: [
     BrowserModule,
     HttpModule,
+    TranslateModule.forRoot(),
     
     AmpleRouteModule,
     LoginModule
   ],
-  providers: [],
+  providers: [Config],
   bootstrap: [AmpleComponent]
 })
 
