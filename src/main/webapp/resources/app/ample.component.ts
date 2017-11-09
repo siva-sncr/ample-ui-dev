@@ -6,7 +6,7 @@ import { Config } from './provider/config.provider';
 @Component({
   selector: 'app-ample',
   templateUrl: './ample.component.html',
-  styleUrls: ['./ample.component.css']
+  styleUrls: ['./ample.component.scss']
 })
 
 export class AmpleComponent implements OnInit{
