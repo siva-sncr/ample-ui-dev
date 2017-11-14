@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AmpleComponent } from './ample.component';
 import { AmpleRouteModule } from './ample.route';
 import { LoginModule } from './modules/login/login.module';
+import { DeviceManagementModule } from './modules/device-management/device.management.module';
 
 import { Config } from './provider/config.provider';
 
@@ -19,7 +20,8 @@ import { Config } from './provider/config.provider';
     TranslateModule.forRoot(),
     
     AmpleRouteModule,
-    LoginModule
+    LoginModule,
+    DeviceManagementModule
   ],
   providers: [Config],
   bootstrap: [AmpleComponent]
