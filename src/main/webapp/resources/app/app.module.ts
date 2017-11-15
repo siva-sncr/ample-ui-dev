@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
+import {DataTableModule} from "angular2-datatable";
 
 import { AmpleComponent } from './ample.component';
 import { AmpleRouteModule } from './ample.route';
 import { LoginModule } from './modules/login/login.module';
-import { DeviceManagementModule } from './modules/device-management/device.management.module';
+import { DevicesModule } from './modules/devices/devices.module';
 
 import { Config } from './provider/config.provider';
 
@@ -18,10 +19,10 @@ import { Config } from './provider/config.provider';
     BrowserModule,
     HttpModule,
     TranslateModule.forRoot(),
-    
+    DataTableModule,
     AmpleRouteModule,
     LoginModule,
-    DeviceManagementModule
+    DevicesModule
   ],
   providers: [Config],
   bootstrap: [AmpleComponent]
