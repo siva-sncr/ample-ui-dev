@@ -1,13 +1,102 @@
 import { Component, OnInit } from '@angular/core';
-declare var google: any;
-declare var jQuery: any;
-
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import { Datas } from './data';
 @Component({
 	selector: 'devices',
 	templateUrl: './devices.component.html',
 	styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent {
+	commonSettings = {
+		singleSelection: false,
+		text: "Select",
+		selectAllText: 'Select All',
+		unSelectAllText: 'UnSelect All',
+		enableSearchFilter: true,
+		classes: "myclass custom-class"
+	}
+	// Filters
+	statusDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	typeDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	stateDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	profileStatusDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	fwUpgradeStatusDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	fwVersionDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	commTypeDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	nwGroupDropdown = {
+		list: [],
+		selectedItems: [],
+		settings: this.commonSettings
+	}
+	deviceSearch = "";
+	ngOnInit() {
+		this.statusDropdown.list = this.populateDropdown(Datas.statuses);
+		this.typeDropdown.list = this.populateDropdown(Datas.deviceType);
+		this.stateDropdown.list = this.populateDropdown(Datas.state);
+		this.profileStatusDropdown.list = this.populateDropdown(Datas.profileStatus);
+		this.fwUpgradeStatusDropdown.list = this.populateDropdown(Datas.fwUpgradeStatus);
+		this.fwVersionDropdown.list = this.populateDropdown(Datas.softwareVersions);
+		this.commTypeDropdown.list = this.populateDropdown(Datas.commTypes);
+		this.nwGroupDropdown.list = this.populateDropdown(Datas.networkGroupNames);
+	}
+	populateDropdown(data){
+		let list = [];
+		for(let i=0;i<data.length;i++){
+			list.push({id:data[i], itemName:data[i]})
+		}
+		return list;
+	}
+	applyFilters(){
+		var reqBody = {
+			'networkGroupNames': this.getSelectedList(this.nwGroupDropdown.selectedItems),
+			'softwareVersions': this.getSelectedList(this.fwVersionDropdown.selectedItems),
+			'commTypes': this.getSelectedList(this.commTypeDropdown.selectedItems),
+			'statuses': this.getSelectedList(this.statusDropdown.selectedItems),
+			'states': this.getSelectedList(this.stateDropdown.selectedItems),
+			'profileStatuses' : this.getSelectedList(this.profileStatusDropdown.selectedItems),
+			'fwUpgradeStatuses' : this.getSelectedList(this.fwUpgradeStatusDropdown.selectedItems),
+			'deviceTypes' : this.getSelectedList(this.typeDropdown.selectedItems),
+			'searchPattern': this.deviceSearch
+		};
+		console.log(reqBody);
+	}
+
+	getSelectedList = function(obj) {
+		var list = [];
+        for(let i=0;i<obj.length;i++){
+			list.push(obj[i])
+		}
+        return list;
+    };
+
 
 	//public data;
 	public filterQuery = "";

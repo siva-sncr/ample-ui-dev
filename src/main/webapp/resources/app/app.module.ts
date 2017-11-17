@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 import {DataTableModule} from "angular2-datatable";
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 
 import { AmpleComponent } from './ample.component';
 import { AmpleRouteModule } from './ample.route';
@@ -20,6 +21,7 @@ import { Config } from './provider/config.provider';
     HttpModule,
     TranslateModule.forRoot(),
     DataTableModule,
+    AngularMultiSelectModule,
     AmpleRouteModule,
     LoginModule,
     DevicesModule
