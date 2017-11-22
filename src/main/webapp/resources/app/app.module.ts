@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 import {DataTableModule} from "angular2-datatable";
@@ -9,12 +9,14 @@ import { AmpleComponent } from './ample.component';
 import { AmpleRouteModule } from './ample.route';
 import { LoginModule } from './modules/login/login.module';
 import { DevicesModule } from './modules/devices/devices.module';
+import { HeaderComponent } from './modules/header/header.component';
 
 import { Config } from './provider/config.provider';
 
 @NgModule({
   declarations: [
-    AmpleComponent
+    HeaderComponent,
+    AmpleComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { Config } from './provider/config.provider';
     DevicesModule
   ],
   providers: [Config],
-  bootstrap: [AmpleComponent]
+  bootstrap: [AmpleComponent],
+  schemas : [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AmpleModule { }

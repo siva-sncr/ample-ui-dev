@@ -1,0 +1,27 @@
+<div class="navigation">
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container padding-0">
+
+
+
+            <div class="">
+                <div class="header-holder">
+                    <div class="logo-wrapper">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="menu-wrapper">
+                        <ul class="nav navbar-nav">
+                            <li *ngFor="let menu of menuItems">
+                              <a [routerLink]="[menu.path]">{{ menu.key | translate }}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!--   Header Right align -end  -->
+
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>

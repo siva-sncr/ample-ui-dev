@@ -21,7 +21,8 @@ export class AmpleComponent implements OnInit{
         this.localeCode = this._config.getProp('language');
         this._config.loadMessageBundle(this.localeCode).subscribe(
           res => {
-            this.router.navigate(['login']);
+            //this.router.navigate(['login']);
+            this.router.navigate(['']);
           }, err => {
             console.log(err)
           });
