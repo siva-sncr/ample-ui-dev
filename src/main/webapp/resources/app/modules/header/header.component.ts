@@ -9,7 +9,7 @@ export class HeaderComponent {
 	menuItems = [
 		{
 			'key': 'nav.main.dashboard',
-			'path': '/dashboard',
+			'path': '/login',
 			'state': 'base.dashboard'
 		},
 		{

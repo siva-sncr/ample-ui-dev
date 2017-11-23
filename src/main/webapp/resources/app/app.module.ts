@@ -4,18 +4,21 @@ import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 import {DataTableModule} from "angular2-datatable";
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import { TreeModule } from 'angular-tree-component';
 
 import { AmpleComponent } from './ample.component';
 import { AmpleRouteModule } from './ample.route';
 import { LoginModule } from './modules/login/login.module';
 import { DevicesModule } from './modules/devices/devices.module';
 import { HeaderComponent } from './modules/header/header.component';
+import { TreeviewComponent } from './modules/treeview/treeview.component';
 
 import { Config } from './provider/config.provider';
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    TreeviewComponent,
     AmpleComponent,
   ],
   imports: [
@@ -24,6 +27,7 @@ import { Config } from './provider/config.provider';
     TranslateModule.forRoot(),
     DataTableModule,
     AngularMultiSelectModule,
+    TreeModule,
     AmpleRouteModule,
     LoginModule,
     DevicesModule
